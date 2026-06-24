@@ -1,0 +1,22 @@
+/* Fuentes auto-alojadas (subset latin) — Cinzel 600, Montserrat 300/400/600.
+   Producción: re-exportar como woff2 subsetado a glifos ES (á é í ó ú ñ ü ¿ ¡). */
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal; font-weight: 600; font-display: swap;
+  src: url(../fonts/cinzel-600.woff) format('woff');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal; font-weight: 300; font-display: swap;
+  src: url(../fonts/montserrat-300.woff) format('woff');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal; font-weight: 400; font-display: swap;
+  src: url(../fonts/montserrat-400.woff) format('woff');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal; font-weight: 600; font-display: swap;
+  src: url(../fonts/montserrat-600.woff) format('woff');
+}

@@ -1,0 +1,14 @@
+# Configuración de despliegue en Netlify.
+# Netlify ejecuta build.py (regenera el HTML desde content/ + pages/) en cada
+# push. Cuando el cliente guarda en /admin, DecapBridge hace un commit a GitHub,
+# GitHub avisa a Netlify, y Netlify reconstruye y publica el sitio.
+
+[build]
+  command = "python3 build.py"
+  publish = "."
+
+# robots.txt ya bloquea /admin de los buscadores; este header lo refuerza.
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"

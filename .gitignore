@@ -1,0 +1,7 @@
+.DS_Store
+*.log
+node_modules/
+
+# HTML generado por build.py (la fuente vive en pages/ + content/).
+# Netlify lo reconstruye en cada despliegue; no se versiona.
+/*.html

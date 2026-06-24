@@ -1,0 +1,306 @@
+# ───────────────────────────────────────────────────────────────────
+# Panel de edición de contenido — Regencias Radiantes (Decap CMS)
+# Generado automáticamente. Para regenerar: scratchpad/gen_config.py
+#
+# MODO LOCAL (esta máquina): local_backend: true + `npx decap-server`.
+#   El cliente entra en http://127.0.0.1:4321/admin/ y edita sin contraseña.
+# MODO PRODUCCIÓN (Netlify + DecapBridge): el cliente inicia sesión con
+#   correo/contraseña (sin cuenta de GitHub) y cada "Guardar" hace un commit
+#   que Netlify reconstruye y publica. Complete los 2 valores marcados ↓
+# ───────────────────────────────────────────────────────────────────
+
+backend:
+  name: git-gateway
+  repo: TU_USUARIO/TU_REPOSITORIO                              # ← su repositorio de GitHub (usuario/repo)
+  branch: main
+  identity_url: https://auth.decapbridge.com/sites/TU_SITE_ID  # ← lo genera DecapBridge al crear el sitio
+  gateway_url: https://gateway.decapbridge.com
+  commit_messages:
+    create: 'Contenido: crea {{slug}}'
+    update: 'Contenido: actualiza {{slug}}'
+    delete: 'Contenido: elimina {{slug}}'
+    uploadMedia: 'Contenido: sube imagen {{path}}'
+    deleteMedia: 'Contenido: elimina imagen {{path}}'
+
+# Edición LOCAL en esta máquina con `npx decap-server`. En el sitio publicado
+# se ignora automáticamente y se usa el backend de arriba (DecapBridge).
+local_backend: true
+
+locale: es
+media_folder: assets/img
+public_folder: assets/img
+
+collections:
+  - name: configuracion
+    label: Configuración del sitio
+    description: Datos de contacto que aparecen en todo el sitio.
+    files:
+      - name: general
+        label: Datos de contacto
+        file: content/settings.json
+        fields:
+          - { name: whatsapp, label: "WhatsApp Business (solo números, sin el +)", widget: string, hint: "Ej: 50688887777 — código de país + número, sin espacios ni signos." }
+          - { name: email, label: Correo de contacto, widget: string }
+          - { name: domain, label: "Dominio del sitio (no cambiar salvo necesidad)", widget: string, required: false }
+
+  - name: paginas
+    label: Páginas
+    files:
+      - name: home
+        label: "Inicio"
+        file: content/home.json
+        fields:
+          - { name: hero_eyebrow, label: "Inicio · Línea superior", widget: string }
+          - { name: hero_title, label: "Inicio · Título", widget: string }
+          - { name: hero_lead, label: "Inicio · Texto principal", widget: text }
+          - { name: hero_cta_primary, label: "Inicio · Botón principal", widget: string }
+          - { name: hero_cta_whatsapp, label: "Inicio · Botón WhatsApp", widget: string }
+          - { name: hero_tagline, label: "Inicio · Lema", widget: string }
+          - { name: problema_eyebrow, label: "El problema · Etiqueta", widget: string }
+          - { name: problema_titulo, label: "El problema · Título", widget: string }
+          - { name: problema_intro, label: "El problema · Introducción", widget: text }
+          - { name: problema_item1_titulo, label: "El problema · Punto 1 · Título", widget: string }
+          - { name: problema_item1_texto, label: "El problema · Punto 1 · Texto", widget: text }
+          - { name: problema_item2_titulo, label: "El problema · Punto 2 · Título", widget: string }
+          - { name: problema_item2_texto, label: "El problema · Punto 2 · Texto", widget: text }
+          - { name: problema_item3_titulo, label: "El problema · Punto 3 · Título", widget: string }
+          - { name: problema_item3_texto, label: "El problema · Punto 3 · Texto", widget: text }
+          - { name: solucion_eyebrow, label: "Nuestra solución · Etiqueta", widget: string }
+          - { name: solucion_titulo, label: "Nuestra solución · Título", widget: string }
+          - { name: solucion_intro, label: "Nuestra solución · Introducción", widget: text, hint: "Admite etiquetas HTML como <strong>" }
+          - { name: solucion_cta, label: "Nuestra solución · Botón", widget: string }
+          - { name: solucion_item1_titulo, label: "Nuestra solución · Punto 1 · Título", widget: string }
+          - { name: solucion_item1_texto, label: "Nuestra solución · Punto 1 · Texto", widget: text }
+          - { name: solucion_item2_titulo, label: "Nuestra solución · Punto 2 · Título", widget: string }
+          - { name: solucion_item2_texto, label: "Nuestra solución · Punto 2 · Texto", widget: text }
+          - { name: solucion_item3_titulo, label: "Nuestra solución · Punto 3 · Título", widget: string }
+          - { name: solucion_item3_texto, label: "Nuestra solución · Punto 3 · Texto", widget: text }
+          - { name: servicios_eyebrow, label: "Servicios resumen · Etiqueta", widget: string }
+          - { name: servicios_titulo, label: "Servicios resumen · Título", widget: string }
+          - { name: servicios_intro, label: "Servicios resumen · Introducción", widget: text }
+          - { name: servicios_cta, label: "Servicios resumen · Botón", widget: string }
+          - { name: servicios_card1_titulo, label: "Servicios resumen · Tarjeta 1 · Título", widget: string }
+          - { name: servicios_card1_texto, label: "Servicios resumen · Tarjeta 1 · Texto", widget: text }
+          - { name: servicios_card1_link, label: "Servicios resumen · Tarjeta 1 · Enlace", widget: string }
+          - { name: servicios_card2_titulo, label: "Servicios resumen · Tarjeta 2 · Título", widget: string }
+          - { name: servicios_card2_texto, label: "Servicios resumen · Tarjeta 2 · Texto", widget: text }
+          - { name: servicios_card2_link, label: "Servicios resumen · Tarjeta 2 · Enlace", widget: string }
+          - { name: servicios_card3_titulo, label: "Servicios resumen · Tarjeta 3 · Título", widget: string }
+          - { name: servicios_card3_texto, label: "Servicios resumen · Tarjeta 3 · Texto", widget: text }
+          - { name: servicios_card3_link, label: "Servicios resumen · Tarjeta 3 · Enlace", widget: string }
+          - { name: contadores_eyebrow, label: "Contadores · Etiqueta", widget: string }
+          - { name: contadores_titulo, label: "Contadores · Título", widget: string }
+          - { name: contadores_intro, label: "Contadores · Introducción", widget: text, hint: "Admite etiquetas HTML como <strong>" }
+          - { name: contadores_label1, label: "Contadores · Etiqueta cifra 1", widget: string }
+          - { name: contadores_label2, label: "Contadores · Etiqueta cifra 2", widget: string }
+          - { name: contadores_label3, label: "Contadores · Etiqueta cifra 3", widget: string }
+          - { name: contadores_label4, label: "Contadores · Etiqueta cifra 4", widget: string }
+          - { name: contadores_label5, label: "Contadores · Etiqueta cifra 5", widget: string }
+          - { name: contadores_cta, label: "Contadores · Botón", widget: string }
+          - { name: agtech_eyebrow, label: "Agtech · Etiqueta", widget: string }
+          - { name: agtech_titulo, label: "Agtech · Título", widget: string }
+          - { name: agtech_parrafo1, label: "Agtech · Párrafo 1", widget: text, hint: "Admite etiquetas HTML como <strong>" }
+          - { name: agtech_parrafo2, label: "Agtech · Párrafo 2", widget: text, hint: "Admite etiquetas HTML como <strong>" }
+          - { name: testimonios_eyebrow, label: "Testimonios · Etiqueta", widget: string }
+          - { name: testimonios_titulo, label: "Testimonios · Título", widget: string }
+          - { name: testimonios_quote1, label: "Testimonios · Cita 1", widget: text }
+          - { name: testimonios_cite1, label: "Testimonios · Autor 1", widget: string }
+          - { name: testimonios_quote2, label: "Testimonios · Cita 2", widget: text }
+          - { name: testimonios_cite2, label: "Testimonios · Autor 2", widget: string }
+          - { name: cta_eyebrow, label: "CTA final · Etiqueta", widget: string }
+          - { name: cta_titulo, label: "CTA final · Título", widget: string }
+          - { name: cta_texto, label: "CTA final · Texto", widget: text }
+          - { name: cta_boton_primary, label: "CTA final · Botón principal", widget: string }
+          - { name: cta_boton_whatsapp, label: "CTA final · Botón WhatsApp", widget: string }
+      - name: servicios
+        label: "Servicios"
+        file: content/servicios.json
+        fields:
+          - { name: hero_crumbs, label: "Hero · Migas de pan", widget: string, hint: "Incluye el enlace a Inicio" }
+          - { name: hero_eyebrow, label: "Hero · Eyebrow", widget: string }
+          - { name: hero_titulo, label: "Hero · Título", widget: string }
+          - { name: hero_lead, label: "Hero · Texto introductorio", widget: text }
+          - { name: hero_cta_diagnostico, label: "Hero · Botón diagnóstico", widget: string }
+          - { name: hero_cta_tramites, label: "Hero · Botón trámites", widget: string }
+          - { name: hero_index_01_label, label: "Hero · Índice 01", widget: string }
+          - { name: hero_index_02_label, label: "Hero · Índice 02", widget: string }
+          - { name: hero_index_03_label, label: "Hero · Índice 03", widget: string }
+          - { name: hero_index_tramites_label, label: "Hero · Índice trámites", widget: string }
+          - { name: ejes_eyebrow, label: "Ejes · Eyebrow", widget: string }
+          - { name: ejes_titulo, label: "Ejes · Título", widget: string }
+          - { name: eje1_titulo, label: "Eje 1 · Título", widget: string }
+          - { name: eje1_texto, label: "Eje 1 · Texto", widget: text, hint: "Admite <strong>" }
+          - { name: eje1_meta, label: "Eje 1 · Meta", widget: string }
+          - { name: eje1_link, label: "Eje 1 · Enlace", widget: string }
+          - { name: eje2_titulo, label: "Eje 2 · Título", widget: string }
+          - { name: eje2_texto, label: "Eje 2 · Texto", widget: text, hint: "Admite <strong>" }
+          - { name: eje2_meta, label: "Eje 2 · Meta", widget: string }
+          - { name: eje2_link, label: "Eje 2 · Enlace", widget: string }
+          - { name: eje3_titulo, label: "Eje 3 · Título", widget: string }
+          - { name: eje3_texto, label: "Eje 3 · Texto", widget: text, hint: "Admite <strong>" }
+          - { name: eje3_meta, label: "Eje 3 · Meta", widget: string }
+          - { name: eje3_link, label: "Eje 3 · Enlace", widget: string }
+          - { name: tramites_eyebrow, label: "Trámites · Eyebrow", widget: string }
+          - { name: tramites_titulo, label: "Trámites · Título", widget: string }
+          - { name: tramites_intro, label: "Trámites · Introducción", widget: text }
+          - { name: tramites_a_letra, label: "Trámites A · Letra", widget: string }
+          - { name: tramites_a_titulo, label: "Trámites A · Título", widget: string }
+          - { name: tramites_a_intro, label: "Trámites A · Introducción", widget: text }
+          - { name: tramites_a_salud_titulo, label: "Trámites A · Salud · Título", widget: string }
+          - { name: tramites_a_salud_item1, label: "Trámites A · Salud · Ítem 1", widget: text }
+          - { name: tramites_a_salud_item2, label: "Trámites A · Salud · Ítem 2", widget: text }
+          - { name: tramites_a_salud_item3, label: "Trámites A · Salud · Ítem 3", widget: text }
+          - { name: tramites_a_vuce_titulo, label: "Trámites A · VUCE · Título", widget: string }
+          - { name: tramites_a_vuce_item1, label: "Trámites A · VUCE · Ítem 1", widget: text }
+          - { name: tramites_a_vuce_item2, label: "Trámites A · VUCE · Ítem 2", widget: text }
+          - { name: tramites_a_sfe_titulo, label: "Trámites A · SFE · Título", widget: string }
+          - { name: tramites_a_sfe_item1, label: "Trámites A · SFE · Ítem 1", widget: text }
+          - { name: tramites_a_sfe_item2, label: "Trámites A · SFE · Ítem 2", widget: text }
+          - { name: tramites_a_vui_titulo, label: "Trámites A · VUI · Título", widget: string }
+          - { name: tramites_a_vui_item1, label: "Trámites A · VUI · Ítem 1", widget: text }
+          - { name: tramites_a_seguimiento_titulo, label: "Trámites A · Seguimiento · Título", widget: string }
+          - { name: tramites_a_seguimiento_item1, label: "Trámites A · Seguimiento · Ítem 1", widget: text }
+          - { name: tramites_b_letra, label: "Trámites B · Letra", widget: string }
+          - { name: tramites_b_titulo, label: "Trámites B · Título", widget: string }
+          - { name: tramites_b_intro, label: "Trámites B · Introducción", widget: text }
+          - { name: tramites_b_regencia_titulo, label: "Trámites B · Regencia · Título", widget: string }
+          - { name: tramites_b_regencia_item1, label: "Trámites B · Regencia · Ítem 1", widget: text }
+          - { name: tramites_b_auditorias_titulo, label: "Trámites B · Auditorías · Título", widget: string }
+          - { name: tramites_b_auditorias_item1, label: "Trámites B · Auditorías · Ítem 1", widget: text }
+          - { name: tramites_b_auditorias_item2, label: "Trámites B · Auditorías · Ítem 2", widget: text }
+          - { name: tramites_b_auditorias_item3, label: "Trámites B · Auditorías · Ítem 3", widget: text }
+          - { name: tramites_b_diagnosticos_titulo, label: "Trámites B · Diagnósticos · Título", widget: string }
+          - { name: tramites_b_diagnosticos_item1, label: "Trámites B · Diagnósticos · Ítem 1", widget: text }
+          - { name: tramites_b_diagnosticos_item2, label: "Trámites B · Diagnósticos · Ítem 2", widget: text }
+          - { name: tramites_b_diagnosticos_item3, label: "Trámites B · Diagnósticos · Ítem 3", widget: text }
+          - { name: tramites_b_diagnosticos_item4, label: "Trámites B · Diagnósticos · Ítem 4", widget: text }
+          - { name: tramites_b_digitalizacion_titulo, label: "Trámites B · Digitalización · Título", widget: string }
+          - { name: tramites_b_digitalizacion_item1, label: "Trámites B · Digitalización · Ítem 1", widget: text }
+          - { name: tramites_b_digitalizacion_item2, label: "Trámites B · Digitalización · Ítem 2", widget: text }
+          - { name: tramites_b_digitalizacion_item3, label: "Trámites B · Digitalización · Ítem 3", widget: text }
+          - { name: tramites_cta, label: "Trámites · Botón CTA", widget: string }
+          - { name: faq_eyebrow, label: "FAQ · Eyebrow", widget: string }
+          - { name: faq_titulo, label: "FAQ · Título", widget: string }
+          - { name: faq_p1_pregunta, label: "FAQ · Pregunta 1", widget: string }
+          - { name: faq_p1_respuesta, label: "FAQ · Respuesta 1", widget: text }
+          - { name: faq_p2_pregunta, label: "FAQ · Pregunta 2", widget: string }
+          - { name: faq_p2_respuesta, label: "FAQ · Respuesta 2", widget: text }
+          - { name: faq_p3_pregunta, label: "FAQ · Pregunta 3", widget: string }
+          - { name: faq_p3_respuesta, label: "FAQ · Respuesta 3", widget: text }
+          - { name: faq_p4_pregunta, label: "FAQ · Pregunta 4", widget: string }
+          - { name: faq_p4_respuesta, label: "FAQ · Respuesta 4", widget: text }
+          - { name: faq_p5_pregunta, label: "FAQ · Pregunta 5", widget: string }
+          - { name: faq_p5_respuesta, label: "FAQ · Respuesta 5", widget: text }
+          - { name: faq_p6_pregunta, label: "FAQ · Pregunta 6", widget: string }
+          - { name: faq_p6_respuesta, label: "FAQ · Respuesta 6", widget: text }
+          - { name: cta_titulo, label: "CTA final · Título", widget: string }
+          - { name: cta_texto, label: "CTA final · Texto", widget: text }
+          - { name: cta_diagnostico, label: "CTA final · Botón diagnóstico", widget: string }
+          - { name: cta_whatsapp, label: "CTA final · Botón WhatsApp", widget: string }
+      - name: resultados
+        label: "Resultados"
+        file: content/resultados.json
+        fields:
+          - { name: crumbs, label: "Migas de pan", widget: string }
+          - { name: head_eyebrow, label: "Encabezado · Etiqueta", widget: string }
+          - { name: head_titulo, label: "Encabezado · Título", widget: string }
+          - { name: head_lead, label: "Encabezado · Introducción", widget: text }
+          - { name: cifras_titulo, label: "Cifras · Título oculto", widget: string }
+          - { name: counter1_valor, label: "Contador 1 · Número", widget: string }
+          - { name: counter1_label, label: "Contador 1 · Etiqueta", widget: string }
+          - { name: counter2_valor, label: "Contador 2 · Número", widget: string }
+          - { name: counter2_label, label: "Contador 2 · Etiqueta", widget: string }
+          - { name: counter3_valor, label: "Contador 3 · Número", widget: string }
+          - { name: counter3_label, label: "Contador 3 · Etiqueta", widget: string }
+          - { name: counter4_valor, label: "Contador 4 · Número", widget: string }
+          - { name: counter4_label, label: "Contador 4 · Etiqueta", widget: string }
+          - { name: counter5_valor, label: "Contador 5 · Número", widget: string }
+          - { name: counter5_label, label: "Contador 5 · Etiqueta", widget: string }
+          - { name: anchor_eyebrow, label: "Por qué importan · Etiqueta", widget: string }
+          - { name: anchor_titulo, label: "Por qué importan · Título", widget: string }
+          - { name: anchor_parrafo1, label: "Por qué importan · Párrafo 1", widget: text }
+          - { name: anchor_parrafo2, label: "Por qué importan · Párrafo 2", widget: text }
+          - { name: casos_eyebrow, label: "Casos · Etiqueta", widget: string }
+          - { name: casos_titulo, label: "Casos · Título", widget: string }
+          - { name: caso1_titulo, label: "Caso 1 · Título", widget: string }
+          - { name: caso1_texto, label: "Caso 1 · Texto", widget: text }
+          - { name: caso2_titulo, label: "Caso 2 · Título", widget: string }
+          - { name: caso2_texto, label: "Caso 2 · Texto", widget: text }
+          - { name: caso3_titulo, label: "Caso 3 · Título", widget: string }
+          - { name: caso3_texto, label: "Caso 3 · Texto", widget: text }
+          - { name: testimonio1_texto, label: "Testimonio 1 · Texto", widget: text }
+          - { name: testimonio1_autor, label: "Testimonio 1 · Autor", widget: string }
+          - { name: testimonio2_texto, label: "Testimonio 2 · Texto", widget: text }
+          - { name: testimonio2_autor, label: "Testimonio 2 · Autor", widget: string }
+          - { name: testimonios_nota, label: "Testimonios · Nota", widget: text }
+          - { name: cta_titulo, label: "CTA · Título", widget: string }
+          - { name: cta_texto, label: "CTA · Texto", widget: text }
+          - { name: cta_btn_diagnostico, label: "CTA · Botón diagnóstico", widget: string }
+          - { name: cta_btn_whatsapp, label: "CTA · Botón WhatsApp", widget: string }
+      - name: sobre
+        label: "El Regente (Sobre)"
+        file: content/sobre.json
+        fields:
+          - { name: head_crumbs, label: "Encabezado · Migas de pan", widget: string, hint: "Incluye el enlace a Inicio" }
+          - { name: head_eyebrow, label: "Encabezado · Etiqueta", widget: string }
+          - { name: head_titulo, label: "Encabezado · Título (H1)", widget: string }
+          - { name: head_lead, label: "Encabezado · Texto introductorio", widget: text }
+          - { name: intro_eyebrow, label: "Qué nos mueve · Etiqueta", widget: string }
+          - { name: intro_titulo, label: "Qué nos mueve · Título", widget: string }
+          - { name: intro_parrafo_1, label: "Qué nos mueve · Párrafo 1", widget: text }
+          - { name: intro_parrafo_2, label: "Qué nos mueve · Párrafo 2", widget: text }
+          - { name: intro_filosofia, label: "Qué nos mueve · Filosofía", widget: text, hint: "Mantenga la etiqueta <strong>" }
+          - { name: regente_eyebrow, label: "Dirección técnica · Etiqueta", widget: string }
+          - { name: regente_titulo, label: "Dirección técnica · Título", widget: string }
+          - { name: regente_parrafo_1, label: "Dirección técnica · Párrafo 1", widget: text }
+          - { name: regente_parrafo_2, label: "Dirección técnica · Párrafo 2", widget: text }
+          - { name: regente_cta, label: "Dirección técnica · Botón perfil", widget: string, hint: "Conserva el enlace <a>" }
+          - { name: regente_nota, label: "Dirección técnica · Nota del enlace", widget: text }
+          - { name: enfoque_label, label: "Enfoque · Etiqueta de tarjeta", widget: string }
+          - { name: enfoque_titulo, label: "Enfoque · Título (aquí)", widget: string }
+          - { name: enfoque_item_1, label: "Enfoque · Ítem 1", widget: string }
+          - { name: enfoque_item_2, label: "Enfoque · Ítem 2", widget: string }
+          - { name: enfoque_item_3, label: "Enfoque · Ítem 3", widget: string }
+          - { name: enfoque_item_4, label: "Enfoque · Ítem 4", widget: string }
+          - { name: enfoque_titulo_arturo, label: "Enfoque · Título (sitio de Arturo)", widget: string }
+          - { name: enfoque_arturo_item_1, label: "Enfoque · Ítem Arturo 1", widget: string }
+          - { name: enfoque_arturo_item_2, label: "Enfoque · Ítem Arturo 2", widget: string }
+          - { name: cta_titulo, label: "Cierre · Título", widget: string }
+          - { name: cta_texto, label: "Cierre · Texto", widget: text }
+          - { name: cta_boton_diagnostico, label: "Cierre · Botón diagnóstico", widget: string }
+          - { name: cta_boton_whatsapp, label: "Cierre · Botón WhatsApp", widget: string }
+      - name: contacto
+        label: "Contacto"
+        file: content/contacto.json
+        fields:
+          - { name: crumbs, label: "Encabezado · Migas de pan", widget: string, hint: "Incluye el enlace a Inicio" }
+          - { name: head_eyebrow, label: "Encabezado · Etiqueta", widget: string }
+          - { name: head_titulo, label: "Encabezado · Título", widget: string }
+          - { name: head_lead, label: "Encabezado · Texto introductorio", widget: text }
+          - { name: canales_eyebrow, label: "Canales · Etiqueta", widget: string }
+          - { name: canales_titulo, label: "Canales · Título", widget: string }
+          - { name: whatsapp_titulo, label: "Canal WhatsApp · Título", widget: string }
+          - { name: whatsapp_texto, label: "Canal WhatsApp · Texto", widget: string }
+          - { name: whatsapp_enlace, label: "Canal WhatsApp · Enlace", widget: string }
+          - { name: correo_titulo, label: "Canal Correo · Título", widget: string }
+          - { name: correo_texto, label: "Canal Correo · Texto", widget: string }
+          - { name: cobertura_titulo, label: "Cobertura · Título", widget: string }
+          - { name: cobertura_texto, label: "Cobertura · Texto", widget: string }
+          - { name: expectativa_linea, label: "Expectativa · Línea de respuesta", widget: text, hint: "Puede contener etiquetas <strong>" }
+          - { name: retrato_pie, label: "Retrato · Pie de foto", widget: string }
+          - { name: form_eyebrow, label: "Formulario · Etiqueta", widget: string }
+          - { name: form_titulo, label: "Formulario · Título", widget: string }
+          - { name: form_texto, label: "Formulario · Texto", widget: text, hint: "Puede contener etiquetas <strong>" }
+          - { name: placeholder_texto, label: "Marcador del formulario · Texto", widget: text }
+          - { name: placeholder_whatsapp_boton, label: "Marcador del formulario · Botón WhatsApp", widget: string }
+          - { name: placeholder_correo_boton, label: "Marcador del formulario · Botón correo", widget: string }
+          - { name: campos_resumen, label: "Campos · Resumen desplegable", widget: string }
+          - { name: campo_nombre, label: "Campo · Nombre completo", widget: string, hint: "Puede contener <em>(obligatorio)</em>" }
+          - { name: campo_empresa, label: "Campo · Nombre de la empresa", widget: string, hint: "Puede contener <em>(obligatorio)</em>" }
+          - { name: campo_correo, label: "Campo · Correo electrónico", widget: string, hint: "Puede contener <em>(obligatorio)</em>" }
+          - { name: campo_telefono, label: "Campo · Teléfono / WhatsApp", widget: string, hint: "Puede contener <em>(obligatorio)</em>" }
+          - { name: campo_servicio, label: "Campo · Servicio que necesita", widget: string, hint: "Puede contener <em>(obligatorio)</em>" }
+          - { name: campo_urgente, label: "Campo · Trámite urgente", widget: string, hint: "Puede contener <em>(obligatorio)</em>" }
+          - { name: campo_situacion, label: "Campo · Describa su situación", widget: string, hint: "Puede contener <em>(obligatorio)</em>" }
+          - { name: campo_registros_vigentes, label: "Campo · Registros sanitarios vigentes", widget: string }
+          - { name: campo_como_encontro, label: "Campo · Cómo nos encontró", widget: string }
