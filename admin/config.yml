@@ -9,21 +9,37 @@
 #   que Netlify reconstruye y publica. Complete los 2 valores marcados ↓
 # ───────────────────────────────────────────────────────────────────
 
+# Autenticación DecapBridge (PKCE): el cliente inicia sesión con correo/contraseña.
 backend:
   name: git-gateway
-  repo: jonrosenfield/arturo                                  # ← su repositorio de GitHub
+  repo: jonrosenfield/arturo
   branch: main
-  identity_url: https://auth.decapbridge.com/sites/TU_SITE_ID  # ← lo genera DecapBridge al crear el sitio
+  auth_type: pkce
+  base_url: https://auth.decapbridge.com
+  auth_endpoint: /sites/8b17e73d-ad50-43a1-9353-d2ee2597549d/pkce
+  auth_token_endpoint: /sites/8b17e73d-ad50-43a1-9353-d2ee2597549d/token
   gateway_url: https://gateway.decapbridge.com
+
   commit_messages:
-    create: 'Contenido: crea {{slug}}'
-    update: 'Contenido: actualiza {{slug}}'
-    delete: 'Contenido: elimina {{slug}}'
-    uploadMedia: 'Contenido: sube imagen {{path}}'
-    deleteMedia: 'Contenido: elimina imagen {{path}}'
+    create: Create {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    update: Update {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    delete: Delete {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    uploadMedia: Upload “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    deleteMedia: Delete “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    openAuthoring: Message {{message}} - {{author-name}} <{{author-login}}> via DecapBridge
+
+# Campos que expone DecapBridge en el inicio de sesión PKCE.
+auth:
+  email_claim: email
+  first_name_claim: first_name
+  last_name_claim: last_name
+  avatar_url_claim: avatar_url
+
+logo_url: https://decapbridge.com/decapcms-with-bridge.svg
+site_url: https://arturoarturo.netlify.app
 
 # Edición LOCAL en esta máquina con `npx decap-server`. En el sitio publicado
-# se ignora automáticamente y se usa el backend de arriba (DecapBridge).
+# se ignora automáticamente y se usa el backend DecapBridge de arriba.
 local_backend: true
 
 locale: es
