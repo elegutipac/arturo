@@ -11,7 +11,7 @@
 
 backend:
   name: git-gateway
-  repo: TU_USUARIO/TU_REPOSITORIO                              # ← su repositorio de GitHub (usuario/repo)
+  repo: jonrosenfield/arturo                                  # ← su repositorio de GitHub
   branch: main
   identity_url: https://auth.decapbridge.com/sites/TU_SITE_ID  # ← lo genera DecapBridge al crear el sitio
   gateway_url: https://gateway.decapbridge.com
