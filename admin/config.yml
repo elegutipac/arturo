@@ -12,7 +12,7 @@
 # Autenticación DecapBridge (PKCE): el cliente inicia sesión con correo/contraseña.
 backend:
   name: git-gateway
-  repo: jonrosenfield/arturo
+  repo: elegutipac/arturo
   branch: main
   auth_type: pkce
   base_url: https://auth.decapbridge.com
@@ -36,7 +36,7 @@ auth:
   avatar_url_claim: avatar_url
 
 logo_url: https://decapbridge.com/decapcms-with-bridge.svg
-site_url: https://arturoarturo.netlify.app
+site_url: https://guileless-unicorn-a2a991.netlify.app
 
 # Edición LOCAL en esta máquina con `npx decap-server`. En el sitio publicado
 # se ignora automáticamente y se usa el backend DecapBridge de arriba.
