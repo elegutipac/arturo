@@ -1,0 +1,21 @@
+{
+  "head_crumbs": "<a href=\"index.html\">Inicio</a> · Notas",
+  "head_eyebrow": "Notas y recursos",
+  "head_titulo": "Notas para la industria de alimentos.",
+  "head_lead": "Explicamos en lenguaje claro lo que la autoridad exige y cómo resolverlo: registros, renovaciones, órdenes sanitarias y auditorías. Sin tecnicismos innecesarios, con el criterio de quien conoce el sistema por dentro.",
+  "listado_titulo": "Listado de notas",
+  "nota1_num": "Próximamente",
+  "nota1_titulo": "Qué exige el Ministerio de Salud para un registro sanitario en 2026",
+  "nota1_texto": "Requisitos, documentos y plazos reales para emitir un Registro Sanitario de Alimentos en Regístrelo, paso a paso.",
+  "nota2_num": "Próximamente",
+  "nota2_titulo": "Cómo responder a una orden sanitaria",
+  "nota2_texto": "Qué hacer en las primeras 48 horas, cuándo procede un recurso de revocatoria y cómo evitar el cierre de la operación.",
+  "nota3_num": "Próximamente",
+  "nota3_titulo": "Diferencia entre BPM y HACCP",
+  "nota3_texto": "Qué pide cada esquema, en qué orden conviene implementarlos y cómo llegar listo a una auditoría NSF, AUDAM o Newrest.",
+  "notas_nota_cierre": "Estamos preparando estas notas. Mientras tanto, si tiene una consulta concreta sobre un trámite o una auditoría, escríbanos y le respondemos directamente.",
+  "cta_titulo": "¿Tiene una duda que no puede esperar?",
+  "cta_texto": "No espere a la próxima nota. Cuéntenos su caso y le damos una respuesta clara.",
+  "cta_btn_primario": "Solicitar diagnóstico",
+  "cta_btn_secundario": "Escribir por correo"
+}

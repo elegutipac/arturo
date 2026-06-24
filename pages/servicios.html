@@ -20,10 +20,10 @@ active: servicios.html
             </div>
           </div>
           <nav class="svc-index" aria-label="Índice de servicios">
-            <a href="#trazabilidad"><span class="svc-index-num" aria-hidden="true">01</span><span class="svc-index-label">{{hero_index_01_label}}</span></a>
-            <a href="#capacitacion"><span class="svc-index-num" aria-hidden="true">02</span><span class="svc-index-label">{{hero_index_02_label}}</span></a>
-            <a href="#trayectoria"><span class="svc-index-num" aria-hidden="true">03</span><span class="svc-index-label">{{hero_index_03_label}}</span></a>
-            <a href="#tramites"><span class="svc-index-num" aria-hidden="true">·</span><span class="svc-index-label">{{hero_index_tramites_label}}</span></a>
+            <a href="#trazabilidad"><span class="svc-index-num" aria-hidden="true">{{indice_01_num}}</span><span class="svc-index-label">{{indice_01_label}}</span></a>
+            <a href="#capacitacion"><span class="svc-index-num" aria-hidden="true">{{indice_02_num}}</span><span class="svc-index-label">{{indice_02_label}}</span></a>
+            <a href="#trayectoria"><span class="svc-index-num" aria-hidden="true">{{indice_03_num}}</span><span class="svc-index-label">{{indice_03_label}}</span></a>
+            <a href="#tramites"><span class="svc-index-num" aria-hidden="true">{{indice_04_num}}</span><span class="svc-index-label">{{indice_04_label}}</span></a>
           </nav>
         </div>
       </div>
@@ -36,7 +36,7 @@ active: servicios.html
         <h2 id="ejes-h">{{ejes_titulo}}</h2>
         <ol class="ejes" style="margin-block-start:clamp(2rem,4vw,3rem)">
           <li class="eje" id="trazabilidad">
-            <span class="eje-num" aria-hidden="true">01</span>
+            <span class="eje-num" aria-hidden="true">{{eje1_num}}</span>
             <div class="eje-body">
               <h3>{{eje1_titulo}}</h3>
               <p>{{eje1_texto}}</p>
@@ -45,7 +45,7 @@ active: servicios.html
             </div>
           </li>
           <li class="eje" id="capacitacion">
-            <span class="eje-num" aria-hidden="true">02</span>
+            <span class="eje-num" aria-hidden="true">{{eje2_num}}</span>
             <div class="eje-body">
               <h3>{{eje2_titulo}}</h3>
               <p>{{eje2_texto}}</p>
@@ -54,7 +54,7 @@ active: servicios.html
             </div>
           </li>
           <li class="eje" id="trayectoria">
-            <span class="eje-num" aria-hidden="true">03</span>
+            <span class="eje-num" aria-hidden="true">{{eje3_num}}</span>
             <div class="eje-body">
               <h3>{{eje3_titulo}}</h3>
               <p>{{eje3_texto}}</p>
@@ -78,57 +78,57 @@ active: servicios.html
           <!-- A -->
           <div class="split" id="registro">
             <div class="split-intro">
-              <span class="tram-letter" aria-hidden="true">{{tramites_a_letra}}</span>
-              <h3>{{tramites_a_titulo}}</h3>
-              <p>{{tramites_a_intro}}</p>
+              <span class="tram-letter" aria-hidden="true">{{grupoA_letra}}</span>
+              <h3>{{grupoA_titulo}}</h3>
+              <p>{{grupoA_texto}}</p>
             </div>
             <div class="split-list">
               <div class="split-item">
                 <span class="split-mark" aria-hidden="true"></span>
                 <div class="split-text">
-                  <h4>{{tramites_a_salud_titulo}}</h4>
+                  <h4>{{grupoA_item1_titulo}}</h4>
                   <ul class="tax-list">
-                    <li>{{tramites_a_salud_item1}}</li>
-                    <li>{{tramites_a_salud_item2}}</li>
-                    <li>{{tramites_a_salud_item3}}</li>
+                    <li>{{grupoA_item1_li1}}</li>
+                    <li>{{grupoA_item1_li2}}</li>
+                    <li>{{grupoA_item1_li3}}</li>
                   </ul>
                 </div>
               </div>
               <div class="split-item" id="comercio">
                 <span class="split-mark" aria-hidden="true"></span>
                 <div class="split-text">
-                  <h4>{{tramites_a_vuce_titulo}}</h4>
+                  <h4>{{grupoA_item2_titulo}}</h4>
                   <ul class="tax-list">
-                    <li>{{tramites_a_vuce_item1}}</li>
-                    <li>{{tramites_a_vuce_item2}}</li>
+                    <li>{{grupoA_item2_li1}}</li>
+                    <li>{{grupoA_item2_li2}}</li>
                   </ul>
                 </div>
               </div>
               <div class="split-item">
                 <span class="split-mark" aria-hidden="true"></span>
                 <div class="split-text">
-                  <h4>{{tramites_a_sfe_titulo}}</h4>
+                  <h4>{{grupoA_item3_titulo}}</h4>
                   <ul class="tax-list">
-                    <li>{{tramites_a_sfe_item1}}</li>
-                    <li>{{tramites_a_sfe_item2}}</li>
+                    <li>{{grupoA_item3_li1}}</li>
+                    <li>{{grupoA_item3_li2}}</li>
                   </ul>
                 </div>
               </div>
               <div class="split-item">
                 <span class="split-mark" aria-hidden="true"></span>
                 <div class="split-text">
-                  <h4>{{tramites_a_vui_titulo}}</h4>
+                  <h4>{{grupoA_item4_titulo}}</h4>
                   <ul class="tax-list">
-                    <li>{{tramites_a_vui_item1}}</li>
+                    <li>{{grupoA_item4_li1}}</li>
                   </ul>
                 </div>
               </div>
               <div class="split-item">
                 <span class="split-mark" aria-hidden="true"></span>
                 <div class="split-text">
-                  <h4>{{tramites_a_seguimiento_titulo}}</h4>
+                  <h4>{{grupoA_item5_titulo}}</h4>
                   <ul class="tax-list">
-                    <li>{{tramites_a_seguimiento_item1}}</li>
+                    <li>{{grupoA_item5_li1}}</li>
                   </ul>
                 </div>
               </div>
@@ -138,51 +138,51 @@ active: servicios.html
           <!-- B -->
           <div class="split" id="regencia">
             <div class="split-intro">
-              <span class="tram-letter" aria-hidden="true">{{tramites_b_letra}}</span>
-              <h3>{{tramites_b_titulo}}</h3>
-              <p>{{tramites_b_intro}}</p>
+              <span class="tram-letter" aria-hidden="true">{{grupoB_letra}}</span>
+              <h3>{{grupoB_titulo}}</h3>
+              <p>{{grupoB_texto}}</p>
             </div>
             <div class="split-list">
               <div class="split-item">
                 <span class="split-mark" aria-hidden="true"></span>
                 <div class="split-text">
-                  <h4>{{tramites_b_regencia_titulo}}</h4>
+                  <h4>{{grupoB_item1_titulo}}</h4>
                   <ul class="tax-list">
-                    <li>{{tramites_b_regencia_item1}}</li>
+                    <li>{{grupoB_item1_li1}}</li>
                   </ul>
                 </div>
               </div>
               <div class="split-item" id="auditorias">
                 <span class="split-mark" aria-hidden="true"></span>
                 <div class="split-text">
-                  <h4>{{tramites_b_auditorias_titulo}}</h4>
+                  <h4>{{grupoB_item2_titulo}}</h4>
                   <ul class="tax-list">
-                    <li>{{tramites_b_auditorias_item1}}</li>
-                    <li>{{tramites_b_auditorias_item2}}</li>
-                    <li>{{tramites_b_auditorias_item3}}</li>
+                    <li>{{grupoB_item2_li1}}</li>
+                    <li>{{grupoB_item2_li2}}</li>
+                    <li>{{grupoB_item2_li3}}</li>
                   </ul>
                 </div>
               </div>
               <div class="split-item">
                 <span class="split-mark" aria-hidden="true"></span>
                 <div class="split-text">
-                  <h4>{{tramites_b_diagnosticos_titulo}}</h4>
+                  <h4>{{grupoB_item3_titulo}}</h4>
                   <ul class="tax-list">
-                    <li>{{tramites_b_diagnosticos_item1}}</li>
-                    <li>{{tramites_b_diagnosticos_item2}}</li>
-                    <li>{{tramites_b_diagnosticos_item3}}</li>
-                    <li>{{tramites_b_diagnosticos_item4}}</li>
+                    <li>{{grupoB_item3_li1}}</li>
+                    <li>{{grupoB_item3_li2}}</li>
+                    <li>{{grupoB_item3_li3}}</li>
+                    <li>{{grupoB_item3_li4}}</li>
                   </ul>
                 </div>
               </div>
               <div class="split-item">
                 <span class="split-mark" aria-hidden="true"></span>
                 <div class="split-text">
-                  <h4>{{tramites_b_digitalizacion_titulo}}</h4>
+                  <h4>{{grupoB_item4_titulo}}</h4>
                   <ul class="tax-list">
-                    <li>{{tramites_b_digitalizacion_item1}}</li>
-                    <li>{{tramites_b_digitalizacion_item2}}</li>
-                    <li>{{tramites_b_digitalizacion_item3}}</li>
+                    <li>{{grupoB_item4_li1}}</li>
+                    <li>{{grupoB_item4_li2}}</li>
+                    <li>{{grupoB_item4_li3}}</li>
                   </ul>
                 </div>
               </div>

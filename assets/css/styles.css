@@ -120,6 +120,8 @@
   }
   .eyebrow::before { content: ""; inline-size: 2rem; block-size: 1px; background: var(--oro); }
   .section--carbon .eyebrow { color: var(--oro); }
+  .hero .eyebrow { font-size: 1.05rem; gap: .8rem; }
+  .hero .eyebrow::before { inline-size: 2.6rem; }
 
   /* ---- header ---- */
   .site-header {
@@ -271,6 +273,7 @@
 
   /* ---- contadores (§4.3) ---- */
   .counters { display: grid; gap: clamp(1.2rem, 3vw, 2rem); grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); }
+  @media (min-width: 960px) { .counters { grid-template-columns: repeat(5, 1fr); gap: clamp(1rem, 2.2vw, 1.6rem); } }
   .counter { text-align: center; padding-block: 1rem; border-block-start: 2px solid var(--line-gold); }
   .counter .num {
     font-family: var(--font-display); font-weight: 600;
@@ -396,7 +399,7 @@
     position: fixed; inset-block-end: 1.1rem; inset-inline-end: 1.1rem; z-index: 200;
     display: inline-flex; align-items: center; gap: .6rem;
     min-block-size: 52px; padding: .7rem 1.1rem;
-    background: #1f7a4d; color: #fff; border: 1px solid #1a6a43;
+    background: var(--carbon); color: var(--crema); border: 1px solid #000;
     font-weight: 600; font-size: .92rem; text-decoration: none;
     box-shadow: 0 6px 22px rgba(17,17,17,.22);
     transition: transform .15s;

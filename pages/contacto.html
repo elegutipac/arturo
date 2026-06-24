@@ -57,11 +57,11 @@ active: contacto.html
               </div>
             </div>
 
-            <p class="expectation">{{expectativa_linea}}</p>
+            <p class="expectation">{{expectativa}}</p>
 
             <figure class="contact-portrait">
               <img class="portrait" src="assets/img/arturo-gutierrez-contacto.webp" alt="Arturo Gutiérrez, director técnico de Regencias Radiantes" width="1694" height="2188" loading="lazy" />
-              <figcaption>{{retrato_pie}}</figcaption>
+              <figcaption>{{retrato_caption}}</figcaption>
             </figure>
           </div>
 
@@ -69,7 +69,7 @@ active: contacto.html
           <div>
             <span class="eyebrow">{{form_eyebrow}}</span>
             <h2 style="margin-block-start:1rem; font-size:clamp(1.3rem,3vw,1.7rem)">{{form_titulo}}</h2>
-            <p style="margin-block:1rem 1.5rem; font-size:.98rem">{{form_texto}}</p>
+            <p style="margin-block:1rem 1.5rem; font-size:.98rem">{{form_intro}}</p>
 
             <!-- Reemplace data-embed con la URL del Google Form (…/viewform?embedded=true)
                  para activar el formulario embebido con carga diferida. -->
@@ -78,15 +78,15 @@ active: contacto.html
                 <img src="assets/img/logo-principal.png" width="80" height="80" alt="" />
                 <p style="max-width:34ch; color:var(--fg-muted)">{{placeholder_texto}}</p>
                 <div class="hero-cta" style="justify-content:center; margin-block-start:.5rem">
-                  <a class="btn btn--gold" href="https://wa.me/50600000000?text=Hola%2C%20quiero%20solicitar%20un%20diagn%C3%B3stico." target="_blank" rel="noopener">{{placeholder_whatsapp_boton}}</a>
-                  <a class="btn btn--ghost" href="mailto:contacto@rradiantes.com?subject=Solicitud%20de%20diagn%C3%B3stico">{{placeholder_correo_boton}}</a>
+                  <a class="btn btn--gold" href="https://wa.me/50600000000?text=Hola%2C%20quiero%20solicitar%20un%20diagn%C3%B3stico." target="_blank" rel="noopener">{{placeholder_btn_whatsapp}}</a>
+                  <a class="btn btn--ghost" href="mailto:contacto@rradiantes.com?subject=Solicitud%20de%20diagn%C3%B3stico">{{placeholder_btn_correo}}</a>
                 </div>
               </div>
             </div>
 
             <!-- Referencia de los campos del formulario (para configurar en Google Forms) -->
             <details style="margin-block-start:1.5rem">
-              <summary style="cursor:pointer; font-weight:600; color:var(--fg-muted)">{{campos_resumen}}</summary>
+              <summary style="cursor:pointer; font-weight:600; color:var(--fg-muted)">{{campos_summary}}</summary>
               <ul class="tax-list" style="margin-block-start:1rem">
                 <li>{{campo_nombre}}</li>
                 <li>{{campo_empresa}}</li>
@@ -95,8 +95,8 @@ active: contacto.html
                 <li>{{campo_servicio}}</li>
                 <li>{{campo_urgente}}</li>
                 <li>{{campo_situacion}}</li>
-                <li>{{campo_registros_vigentes}}</li>
-                <li>{{campo_como_encontro}}</li>
+                <li>{{campo_registros}}</li>
+                <li>{{campo_referencia}}</li>
               </ul>
             </details>
           </div>

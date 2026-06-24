@@ -4,6 +4,7 @@
   <url><loc>https://rradiantes.com/servicios.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://rradiantes.com/resultados.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://rradiantes.com/sobre.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rradiantes.com/notas.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://rradiantes.com/contacto.html</loc><changefreq>yearly</changefreq><priority>0.9</priority></url>
   <url><loc>https://rradiantes.com/privacidad.html</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
   <url><loc>https://rradiantes.com/terminos.html</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>

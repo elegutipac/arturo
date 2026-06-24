@@ -43,6 +43,7 @@ NAV = [
     ("servicios.html", "Servicios"),
     ("resultados.html", "Resultados"),
     ("sobre.html", "El Regente"),
+    ("notas.html", "Notas"),
     ("contacto.html", "Contacto"),
 ]
 
@@ -83,6 +84,7 @@ def header(active):
         mega,
         li("resultados.html", "Resultados"),
         li("sobre.html", "El Regente"),
+        li("notas.html", "Notas"),
         li("contacto.html", "Contacto"),
     ])
     return f'''  <a class="skip-link" href="#main">Saltar al contenido</a>
@@ -138,6 +140,7 @@ FOOTER = f'''  <footer class="site-footer">
             <li><a href="servicios.html">Servicios</a></li>
             <li><a href="resultados.html">Resultados</a></li>
             <li><a href="sobre.html">El Regente</a></li>
+            <li><a href="notas.html">Notas</a></li>
             <li><a href="contacto.html">Contacto</a></li>
           </ul>
         </div>
@@ -167,9 +170,9 @@ FOOTER = f'''  <footer class="site-footer">
     </div>
   </footer>
 
-  <a class="wa-float" href="https://wa.me/{WA}?text=Hola%2C%20necesito%20apoyo%20con%20un%20tr%C3%A1mite%20de%20alimentos." target="_blank" rel="noopener" aria-label="Escribir a Regencias Radiantes por WhatsApp">
-    <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.1 1.6 5.9L4 29l8.3-1.6c1.7.9 3.7 1.4 5.7 1.4 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-4.9 1 1-4.8-.2-.4c-1-1.6-1.5-3.4-1.5-5.3C5 9.5 9.9 4.8 16 4.8S27 9.5 27 15.5 22.1 24.8 16 24.8zm6.1-7.3c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.8.2-.2.3-.9 1.1-1.1 1.3-.2.2-.4.2-.7.1-1.8-.9-3-1.6-4.2-3.6-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.6s-.8-1.9-1-2.6c-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.4 1.4 3.6c.2.2 2.4 3.7 5.8 5.1 2.2.9 3 .9 4.1.8.7-.1 2-.8 2.3-1.6.3-.8.3-1.5.2-1.6-.1-.2-.3-.3-.6-.4z"/></svg>
-    <span class="wa-text">WhatsApp</span>
+  <a class="wa-float" href="mailto:{EMAIL}?subject=Consulta%20-%20Regencias%20Radiantes" aria-label="Escribir a Regencias Radiantes por correo electrónico">
+    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="7" width="24" height="18" rx="1.5"/><path d="M5 8l11 8 11-8"/></svg>
+    <span class="wa-text">Email</span>
   </a>'''
 
 def page(slug, lang_extra=True):
