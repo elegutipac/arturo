@@ -102,16 +102,6 @@
   .section--carbon { background: var(--carbon); color: var(--crema); }
   .section--carbon h1, .section--carbon h2, .section--carbon h3 { color: var(--crema); }
   .section--carbon strong { color: var(--oro); }
-  /* Foto de fondo difuminada, velada al color base (crema/arena) para que el texto siga legible */
-  .section--photo { position: relative; isolation: isolate; }
-  .section--photo > .container { position: relative; z-index: 1; }
-  .section--photo::before {
-    content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
-    background:
-      linear-gradient(90deg, color-mix(in oklch, var(--photo-base) 92%, transparent) 0%, color-mix(in oklch, var(--photo-base) 74%, transparent) 44%, color-mix(in oklch, var(--photo-base) 54%, transparent) 100%),
-      linear-gradient(180deg, var(--photo-base) 0%, transparent 14%, transparent 86%, var(--photo-base) 100%),
-      var(--photo-img) center / cover no-repeat;
-  }
   .stack > * + * { margin-block-start: 1.1rem; }
 
   .skip-link {
