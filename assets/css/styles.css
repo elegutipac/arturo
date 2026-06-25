@@ -102,6 +102,16 @@
   .section--carbon { background: var(--carbon); color: var(--crema); }
   .section--carbon h1, .section--carbon h2, .section--carbon h3 { color: var(--crema); }
   .section--carbon strong { color: var(--oro); }
+  /* Foto de fondo difuminada, velada al color base (crema/arena) para que el texto siga legible */
+  .section--photo { position: relative; isolation: isolate; }
+  .section--photo > .container { position: relative; z-index: 1; }
+  .section--photo::before {
+    content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    background:
+      linear-gradient(90deg, color-mix(in oklch, var(--photo-base) 92%, transparent) 0%, color-mix(in oklch, var(--photo-base) 74%, transparent) 44%, color-mix(in oklch, var(--photo-base) 54%, transparent) 100%),
+      linear-gradient(180deg, var(--photo-base) 0%, transparent 14%, transparent 86%, var(--photo-base) 100%),
+      var(--photo-img) center / cover no-repeat;
+  }
   .stack > * + * { margin-block-start: 1.1rem; }
 
   .skip-link {
@@ -122,7 +132,7 @@
   .eyebrow::before { content: ""; inline-size: 2rem; block-size: 1px; background: var(--oro); }
   .section--carbon .eyebrow { color: var(--oro); }
   .hero .eyebrow { font-size: 1.05rem; gap: .8rem; }
-  .hero .eyebrow::before { inline-size: 2.6rem; }
+  .hero .eyebrow::before { display: none; }
 
   /* ---- header ---- */
   .site-header {
@@ -135,8 +145,8 @@
   .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .75rem; }
   .brand { display: inline-flex; align-items: center; gap: .7rem; text-decoration: none; }
   .brand img { inline-size: 46px; block-size: 46px; }
+  .brand-name { display: inline-flex; flex-direction: column; gap: .1em; line-height: 1; }
   .brand-word { font-family: var(--font-display); font-weight: 600; letter-spacing: .14em; font-size: 1.05rem; color: var(--carbon); line-height: 1; }
-  .brand-sub { display: block; font-family: var(--font-body); font-size: .62rem; letter-spacing: .22em; text-transform: uppercase; color: var(--fg-muted); font-weight: 500; margin-block-start: .25rem; }
 
   .nav { display: flex; align-items: center; gap: clamp(.9rem, 1.6vw, 1.5rem); }
   .nav-list { display: flex; gap: clamp(.9rem, 1.6vw, 1.5rem); list-style: none; padding: 0; margin: 0; }
@@ -223,9 +233,50 @@
   .hero h1 { margin-block-start: 1.1rem; }
   .hero .lead { font-size: clamp(1.1rem, 1.6vw, 1.3rem); color: var(--fg); margin-block-start: 1.4rem; }
   .hero-cta { display: flex; flex-wrap: wrap; gap: .9rem; margin-block-start: 2rem; }
-  .hero-tag { margin-block-start: 1.8rem; font-family: var(--font-display); letter-spacing: .16em; text-transform: uppercase; font-size: .82rem; color: var(--oro-soft); }
+  .hero-tag { margin-block-start: .9rem; margin-inline-start: 1.2rem; font-family: var(--font-display); letter-spacing: .16em; text-transform: uppercase; font-size: .82rem; color: var(--oro-soft); }
   .hero-media { position: relative; display: grid; place-items: center; }
   .hero-media img { inline-size: min(360px, 78vw); filter: drop-shadow(0 12px 30px rgba(17,17,17,.10)); }
+
+  /* ---- foto del hero con logo superpuesto, fundido a crema ---- */
+  .hero-photo {
+    position: relative;
+    isolation: isolate;
+    inline-size: min(440px, 84vw);
+    aspect-ratio: 4 / 5;
+    overflow: clip;
+    display: grid;
+    place-items: start center;
+    padding-block-start: clamp(1.5rem, 6%, 3rem);
+    margin: 0;
+  }
+  .hero-photo .hero-photo-bg {
+    position: absolute;
+    inset: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    object-position: 58% 32%;
+    z-index: 0;
+    filter: none;
+  }
+  /* El fundido a crema deja visible la foto y abre un claro en la parte superior para el logo */
+  .hero-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+      radial-gradient(70% 50% at 50% 24%, var(--crema) 0%, color-mix(in oklch, var(--crema) 86%, transparent) 30%, transparent 62%),
+      linear-gradient(180deg, color-mix(in oklch, var(--crema) 45%, transparent) 0%, transparent 30%, transparent 74%, var(--crema) 100%),
+      linear-gradient(90deg, var(--crema) 0%, transparent 18%, transparent 82%, var(--crema) 100%);
+  }
+  .hero-photo .hero-photo-mark {
+    position: relative;
+    z-index: 2;
+    inline-size: min(280px, 62%);
+    block-size: auto;
+    filter: none;
+  }
 
   /* ---- retratos (fotografía real) ---- */
   .portrait { display: block; inline-size: 100%; block-size: auto; object-fit: cover; border: 1px solid color-mix(in oklch, var(--oro) 60%, transparent); filter: none; }
@@ -236,6 +287,20 @@
 
   /* ---- side rule (detalle editorial) ---- */
   .rule-block { border-inline-start: 2px solid var(--oro); padding-inline-start: 1.2rem; }
+
+  /* ---- agtech: texto + foto de planta a la derecha ---- */
+  .agtech-grid { display: grid; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+  @media (min-width: 880px) { .agtech-grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); } }
+  .agtech-media { position: relative; isolation: isolate; overflow: clip; margin: 0; }
+  /* La foto se funde en el fondo arena, igual que el hero se funde en crema */
+  .agtech-media .portrait { inline-size: 100%; aspect-ratio: 4 / 5; border: 0; filter: none; display: block; }
+  .agtech-media::after {
+    content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background:
+      linear-gradient(180deg, var(--arena) 0%, transparent 20%, transparent 80%, var(--arena) 100%),
+      linear-gradient(90deg, var(--arena) 0%, transparent 16%, transparent 84%, var(--arena) 100%),
+      radial-gradient(120% 92% at 50% 50%, transparent 44%, color-mix(in oklch, var(--arena) 50%, transparent) 100%);
+  }
 
   /* ---- grid de servicios ---- */
   .grid { display: grid; gap: clamp(1.1rem, 2.4vw, 1.6rem); }
@@ -397,7 +462,7 @@
   .footer-bottom { margin-block-start: 3rem; padding-block-start: 1.5rem; border-block-start: 1px solid color-mix(in oklch, var(--crema) 18%, transparent); display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; font-size: .82rem; color: color-mix(in oklch, var(--crema) 60%, transparent); }
   .footer-tag { font-family: var(--font-display); letter-spacing: .16em; text-transform: uppercase; color: var(--oro); font-size: .8rem; }
 
-  /* ---- WhatsApp flotante ---- */
+  /* ---- Correo flotante ---- */
   .wa-float {
     position: fixed; inset-block-end: 1.1rem; inset-inline-end: 1.1rem; z-index: 200;
     display: inline-flex; align-items: center; gap: .6rem;

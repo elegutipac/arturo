@@ -2,7 +2,7 @@
 """
 Generador estático de Regencias Radiantes.
 Envuelve el contenido de cada página (pages/*.html) en la plantilla común
-(cabecera + pie + botón WhatsApp) y escribe los .html finales en la raíz.
+(cabecera + pie + botón de correo) y escribe los .html finales en la raíz.
 
 Uso:  python3 build.py
 Editar texto:  modifique los archivos en pages/ y vuelva a ejecutar.
@@ -22,7 +22,6 @@ def _load_json(rel, default):
 
 # Datos de contacto editables desde el panel /admin (content/settings.json)
 SETTINGS = _load_json("content/settings.json", {})
-WA = SETTINGS.get("whatsapp", "50600000000")        # número WhatsApp Business (sin +, formato internacional)
 EMAIL = SETTINGS.get("email", "contacto@rradiantes.com")
 DOMAIN = SETTINGS.get("domain", "https://rradiantes.com")
 
@@ -43,7 +42,7 @@ NAV = [
     ("servicios.html", "Servicios"),
     ("resultados.html", "Resultados"),
     ("sobre.html", "El Regente"),
-    ("notas.html", "Notas"),
+    ("notas.html", "Tips"),
     ("contacto.html", "Contacto"),
 ]
 
@@ -84,7 +83,7 @@ def header(active):
         mega,
         li("resultados.html", "Resultados"),
         li("sobre.html", "El Regente"),
-        li("notas.html", "Notas"),
+        li("notas.html", "Tips"),
         li("contacto.html", "Contacto"),
     ])
     return f'''  <a class="skip-link" href="#main">Saltar al contenido</a>
@@ -93,9 +92,9 @@ def header(active):
     <div class="container header-inner">
       <a class="brand" href="index.html" aria-label="Regencias Radiantes — inicio">
         <img src="assets/img/logo-simbolo.png" width="46" height="46" alt="" />
-        <span>
-          <span class="brand-word">RADIANTES</span>
-          <span class="brand-sub">Servicios con propósito</span>
+        <span class="brand-name">
+          <span class="brand-word">Regencias</span>
+          <span class="brand-word">Radiantes</span>
         </span>
       </a>
       <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
@@ -104,7 +103,10 @@ def header(active):
       <nav class="nav" id="nav" aria-label="Principal">
         <a class="nav-brand" href="index.html" aria-label="Regencias Radiantes — inicio">
           <img src="assets/img/logo-simbolo.png" width="40" height="40" alt="" />
-          <span class="brand-word">RADIANTES</span>
+          <span class="brand-name">
+            <span class="brand-word">Regencias</span>
+            <span class="brand-word">Radiantes</span>
+          </span>
         </a>
         <button class="nav-close" type="button" aria-label="Cerrar menú">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6 18 18M18 6 6 18"/></svg>
@@ -113,9 +115,9 @@ def header(active):
 {items}
         </ul>
         <a class="btn btn--gold" href="contacto.html">Solicitar diagnóstico</a>
-        <a class="nav-wa" href="https://wa.me/{WA}?text=Hola%2C%20necesito%20apoyo%20con%20un%20tr%C3%A1mite%20de%20alimentos." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
-          <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.1 1.6 5.9L4 29l8.3-1.6c1.7.9 3.7 1.4 5.7 1.4 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-4.9 1 1-4.8-.2-.4c-1-1.6-1.5-3.4-1.5-5.3C5 9.5 9.9 4.8 16 4.8S27 9.5 27 15.5 22.1 24.8 16 24.8zm6.1-7.3c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.8.2-.2.3-.9 1.1-1.1 1.3-.2.2-.4.2-.7.1-1.8-.9-3-1.6-4.2-3.6-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.6s-.8-1.9-1-2.6c-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.4 1.4 3.6c.2.2 2.4 3.7 5.8 5.1 2.2.9 3 .9 4.1.8.7-.1 2-.8 2.3-1.6.3-.8.3-1.5.2-1.6-.1-.2-.3-.3-.6-.4z"/></svg>
-          WhatsApp
+        <a class="nav-wa" href="mailto:{EMAIL}?subject=Consulta%20-%20Regencias%20Radiantes" aria-label="Escribir por correo electrónico">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="7" width="24" height="18" rx="1.5"/><path d="M5 8l11 8 11-8"/></svg>
+          Email
         </a>
       </nav>
     </div>
@@ -128,7 +130,10 @@ FOOTER = f'''  <footer class="site-footer">
         <div>
           <a class="brand" href="index.html" aria-label="Regencias Radiantes — inicio">
             <img src="assets/img/logo-simbolo-claro.png" width="46" height="46" alt="" />
-            <span class="brand-word">RADIANTES</span>
+            <span class="brand-name">
+              <span class="brand-word">Regencias</span>
+              <span class="brand-word">Radiantes</span>
+            </span>
           </a>
           <p style="margin-block-start:1rem; color:color-mix(in oklch, var(--crema) 75%, transparent); font-size:.95rem; max-width:30ch">Regencia técnica y gestión regulatoria para la industria de alimentos en Costa Rica.</p>
           <p class="footer-tag" style="margin-block-start:1rem">Abrimos caminos</p>
@@ -140,7 +145,7 @@ FOOTER = f'''  <footer class="site-footer">
             <li><a href="servicios.html">Servicios</a></li>
             <li><a href="resultados.html">Resultados</a></li>
             <li><a href="sobre.html">El Regente</a></li>
-            <li><a href="notas.html">Notas</a></li>
+            <li><a href="notas.html">Tips</a></li>
             <li><a href="contacto.html">Contacto</a></li>
           </ul>
         </div>
@@ -156,7 +161,6 @@ FOOTER = f'''  <footer class="site-footer">
         <div>
           <h4>Contacto</h4>
           <ul class="footer-links">
-            <li><a href="https://wa.me/{WA}" target="_blank" rel="noopener">WhatsApp Business</a></li>
             <li><a href="mailto:{EMAIL}">{EMAIL}</a></li>
             <li><span style="color:color-mix(in oklch, var(--crema) 70%, transparent)">Costa Rica</span></li>
             <li><a href="contacto.html">Solicitar diagnóstico</a></li>
@@ -190,8 +194,8 @@ def page(slug, lang_extra=True):
     data = CONTENT.get(CONTENT_KEY.get(slug, slug[:-5]), {})
     for k, v in data.items():
         body = body.replace("{{" + k + "}}", str(v))
-    # WhatsApp y correo se editan una sola vez en content/settings.json y se propagan a todas las páginas.
-    body = body.replace("50600000000", WA).replace("contacto@rradiantes.com", EMAIL)
+    # El correo se edita una sola vez en content/settings.json y se propaga a todas las páginas.
+    body = body.replace("contacto@rradiantes.com", EMAIL)
 
     title = meta.get("title", "Regencias Radiantes")
     desc = meta.get("description", "")

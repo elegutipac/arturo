@@ -9,23 +9,56 @@ active: index.html
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <span class="eyebrow">{{hero_eyebrow}}</span>
           <h1>{{hero_title}}</h1>
           <p class="lead">{{hero_lead}}</p>
           <div class="hero-cta">
-            <a class="btn btn--gold" href="contacto.html">{{hero_cta_diagnostico}}</a>
-            <a class="btn btn--ghost" href="https://wa.me/50600000000?text=Hola%2C%20necesito%20apoyo%20con%20un%20tr%C3%A1mite%20de%20alimentos." target="_blank" rel="noopener">{{hero_cta_whatsapp}}</a>
+            <a class="btn btn--gold" href="mailto:contacto@rradiantes.com?subject=Consulta%20-%20Regencias%20Radiantes">{{hero_cta_whatsapp}}</a>
           </div>
           <p class="hero-tag">{{hero_tag}}</p>
         </div>
         <div class="hero-media">
-          <img src="assets/img/logo-principal.png" alt="Logotipo de Regencias Radiantes: monograma de doble R en serif dentro de un anillo dorado" width="360" height="360" fetchpriority="high" />
+          <figure class="hero-photo">
+            <img class="hero-photo-bg" src="assets/img/produccion-industria-alimentos.webp" alt="Operaria en una planta de producción de alimentos manipulando equipos industriales en un entorno certificado" width="880" height="1320" fetchpriority="high" />
+            <img class="hero-photo-mark" src="assets/img/logo-principal.png" alt="Logotipo de Regencias Radiantes: monograma de doble R en serif dentro de un anillo dorado" width="300" height="300" />
+          </figure>
         </div>
       </div>
     </section>
 
+    <!-- CONTADORES -->
+    <section class="section section--carbon" aria-labelledby="cred-h">
+      <div class="container">
+        <span class="eyebrow">{{contadores_eyebrow}}</span>
+        <h2 id="cred-h">{{contadores_titulo}}</h2>
+        <p style="color:color-mix(in oklch, var(--crema) 78%, transparent); margin-block-start:1rem; max-width:62ch">{{contadores_intro}}</p>
+        <div class="counters" style="margin-block-start:3rem">
+          <div class="counter">
+            <span class="num anchor" data-target="6" data-suffix="+" aria-hidden="true">0</span>
+            <span class="label"><span class="visually-hidden">6+ </span>{{contador1_label}}</span>
+          </div>
+          <div class="counter">
+            <span class="num anchor" data-target="15" aria-hidden="true">0</span>
+            <span class="label"><span class="visually-hidden">15 </span>{{contador2_label}}</span>
+          </div>
+          <div class="counter">
+            <span class="num" data-target="79" aria-hidden="true">0</span>
+            <span class="label"><span class="visually-hidden">79 </span>{{contador3_label}}</span>
+          </div>
+          <div class="counter">
+            <span class="num" data-target="3" aria-hidden="true">0</span>
+            <span class="label"><span class="visually-hidden">3 </span>{{contador4_label}}</span>
+          </div>
+          <div class="counter">
+            <span class="num-affix" aria-hidden="true">hasta </span><span class="num" data-target="24" aria-hidden="true">0</span>
+            <span class="label"><span class="visually-hidden">hasta 24 </span>{{contador5_label}}</span>
+          </div>
+        </div>
+        <p style="margin-block-start:2.5rem"><a class="btn btn--ghost" href="resultados.html">{{contadores_cta}}</a></p>
+      </div>
+    </section>
+
     <!-- EL PROBLEMA -->
-    <section class="section" aria-labelledby="prob-h">
+    <section class="section section--photo" aria-labelledby="prob-h" style="--photo-base:var(--crema); --photo-img:url('assets/img/linea-produccion-alimentos.webp')">
       <div class="container">
         <div class="split">
           <div class="split-intro">
@@ -61,7 +94,7 @@ active: index.html
     </section>
 
     <!-- NUESTRA SOLUCIÓN -->
-    <section class="section section--arena" aria-labelledby="sol-h">
+    <section class="section section--arena section--photo" aria-labelledby="sol-h" style="--photo-base:var(--arena); --photo-img:url('assets/img/producto-fresco-mercado.webp')">
       <div class="container">
         <div class="split">
           <div class="split-intro">
@@ -93,6 +126,19 @@ active: index.html
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BAND (negro, tras la solución) -->
+    <section class="section section--carbon cta-band" aria-labelledby="cta-sol-h">
+      <div class="container">
+        <span class="eyebrow" style="justify-content:center">{{cta_eyebrow}}</span>
+        <h2 id="cta-sol-h">{{cta_titulo}}</h2>
+        <p class="measure" style="margin-inline:auto">{{cta_texto}}</p>
+        <div class="hero-cta">
+          <a class="btn btn--gold" href="contacto.html">{{cta_diagnostico}}</a>
+          <a class="btn btn--ghost" href="mailto:contacto@rradiantes.com?subject=Quiero%20agendar%20una%20consulta">{{cta_whatsapp}}</a>
         </div>
       </div>
     </section>
@@ -137,46 +183,19 @@ active: index.html
       </div>
     </section>
 
-    <!-- CONTADORES -->
-    <section class="section section--carbon" aria-labelledby="cred-h">
-      <div class="container">
-        <span class="eyebrow">{{contadores_eyebrow}}</span>
-        <h2 id="cred-h">{{contadores_titulo}}</h2>
-        <p style="color:color-mix(in oklch, var(--crema) 78%, transparent); margin-block-start:1rem; max-width:62ch">{{contadores_intro}}</p>
-        <div class="counters" style="margin-block-start:3rem">
-          <div class="counter">
-            <span class="num anchor" data-target="6" data-suffix="+" aria-hidden="true">0</span>
-            <span class="label"><span class="visually-hidden">6+ </span>{{contador1_label}}</span>
-          </div>
-          <div class="counter">
-            <span class="num anchor" data-target="15" aria-hidden="true">0</span>
-            <span class="label"><span class="visually-hidden">15 </span>{{contador2_label}}</span>
-          </div>
-          <div class="counter">
-            <span class="num" data-target="79" aria-hidden="true">0</span>
-            <span class="label"><span class="visually-hidden">79 </span>{{contador3_label}}</span>
-          </div>
-          <div class="counter">
-            <span class="num" data-target="3" aria-hidden="true">0</span>
-            <span class="label"><span class="visually-hidden">3 </span>{{contador4_label}}</span>
-          </div>
-          <div class="counter">
-            <span class="num-affix" aria-hidden="true">hasta </span><span class="num" data-target="24" aria-hidden="true">0</span>
-            <span class="label"><span class="visually-hidden">hasta 24 </span>{{contador5_label}}</span>
-          </div>
-        </div>
-        <p style="margin-block-start:2.5rem"><a class="btn btn--ghost" href="resultados.html">{{contadores_cta}}</a></p>
-      </div>
-    </section>
-
     <!-- MIGRACIÓN PROGRESIVA / AGTECH -->
     <section class="section section--arena" aria-labelledby="agtech-h">
       <div class="container">
-        <div class="rule-block measure">
-          <span class="eyebrow">{{agtech_eyebrow}}</span>
-          <h2 id="agtech-h" style="margin-block-start:1rem">{{agtech_titulo}}</h2>
-          <p style="margin-block-start:1rem">{{agtech_parrafo1}}</p>
-          <p style="margin-block-start:1rem">{{agtech_parrafo2}}</p>
+        <div class="agtech-grid">
+          <div class="rule-block">
+            <span class="eyebrow">{{agtech_eyebrow}}</span>
+            <h2 id="agtech-h" style="margin-block-start:1rem">{{agtech_titulo}}</h2>
+            <p style="margin-block-start:1rem">{{agtech_parrafo1}}</p>
+            <p style="margin-block-start:1rem">{{agtech_parrafo2}}</p>
+          </div>
+          <figure class="agtech-media">
+            <img class="portrait" src="assets/img/planta-procesamiento-alimentos.webp" alt="Profesional inspeccionando tanques de acero inoxidable en una planta de procesamiento de alimentos" width="820" height="1093" loading="lazy" />
+          </figure>
         </div>
       </div>
     </section>
@@ -207,7 +226,7 @@ active: index.html
         <p class="measure" style="margin-inline:auto">{{cta_texto}}</p>
         <div class="hero-cta">
           <a class="btn btn--gold" href="contacto.html">{{cta_diagnostico}}</a>
-          <a class="btn btn--ghost" href="https://wa.me/50600000000?text=Hola%2C%20quiero%20agendar%20una%20consulta." target="_blank" rel="noopener">{{cta_whatsapp}}</a>
+          <a class="btn btn--ghost" href="mailto:contacto@rradiantes.com?subject=Quiero%20agendar%20una%20consulta">{{cta_whatsapp}}</a>
         </div>
       </div>
     </section>

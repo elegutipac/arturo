@@ -55,7 +55,6 @@ collections:
         label: Datos de contacto
         file: content/settings.json
         fields:
-          - { name: whatsapp, label: "WhatsApp Business (solo números, sin el +)", widget: string, hint: "Ej: 50688887777 — código de país + número, sin espacios ni signos." }
           - { name: email, label: Correo de contacto, widget: string }
           - { name: domain, label: "Dominio del sitio (no cambiar salvo necesidad)", widget: string, required: false }
 
@@ -70,7 +69,7 @@ collections:
           - { name: hero_title, label: "Hero · Título", widget: string }
           - { name: hero_lead, label: "Hero · Texto principal", widget: text }
           - { name: hero_cta_diagnostico, label: "Hero · Botón diagnóstico", widget: string }
-          - { name: hero_cta_whatsapp, label: "Hero · Botón WhatsApp", widget: string }
+          - { name: hero_cta_whatsapp, label: "Hero · Botón correo", widget: string }
           - { name: hero_tag, label: "Hero · Tagline", widget: string }
           - { name: problema_eyebrow, label: "El problema · Eyebrow", widget: string }
           - { name: problema_titulo, label: "El problema · Título", widget: text }
@@ -127,7 +126,7 @@ collections:
           - { name: cta_titulo, label: "CTA final · Título", widget: string }
           - { name: cta_texto, label: "CTA final · Texto", widget: text }
           - { name: cta_diagnostico, label: "CTA final · Botón diagnóstico", widget: string }
-          - { name: cta_whatsapp, label: "CTA final · Botón WhatsApp", widget: string }
+          - { name: cta_whatsapp, label: "CTA final · Botón correo", widget: string }
       - name: servicios
         label: "Servicios"
         file: content/servicios.json
@@ -219,7 +218,7 @@ collections:
           - { name: cta_titulo, label: "CTA final · Título", widget: string }
           - { name: cta_texto, label: "CTA final · Texto", widget: text }
           - { name: cta_diagnostico, label: "CTA final · Botón diagnóstico", widget: string }
-          - { name: cta_whatsapp, label: "CTA final · Botón WhatsApp", widget: string }
+          - { name: cta_whatsapp, label: "CTA final · Botón correo", widget: string }
       - name: resultados
         label: "Resultados"
         file: content/resultados.json
@@ -259,7 +258,7 @@ collections:
           - { name: cta_titulo, label: "CTA · Título", widget: string }
           - { name: cta_texto, label: "CTA · Texto", widget: text }
           - { name: cta_btn_diagnostico, label: "CTA · Botón diagnóstico", widget: string }
-          - { name: cta_btn_whatsapp, label: "CTA · Botón WhatsApp", widget: string }
+          - { name: cta_btn_whatsapp, label: "CTA · Botón correo", widget: string }
       - name: sobre
         label: "El Regente (Sobre)"
         file: content/sobre.json
@@ -275,6 +274,7 @@ collections:
           - { name: intro_filosofia, label: "Qué nos mueve · Filosofía", widget: text }
           - { name: regente_eyebrow, label: "Dirección técnica · Eyebrow", widget: string }
           - { name: regente_titulo, label: "Dirección técnica · Título (H2)", widget: string }
+          - { name: regente_colegiado, label: "Dirección técnica · Colegiatura", widget: string }
           - { name: regente_parrafo_1, label: "Dirección técnica · Párrafo 1", widget: text }
           - { name: regente_parrafo_2, label: "Dirección técnica · Párrafo 2", widget: text }
           - { name: regente_cta, label: "Dirección técnica · Enlace a perfil", widget: string, hint: "Incluye el enlace al sitio personal de Arturo Gutiérrez" }
@@ -291,9 +291,9 @@ collections:
           - { name: cta_titulo, label: "Llamado a la acción · Título", widget: string }
           - { name: cta_texto, label: "Llamado a la acción · Texto", widget: text }
           - { name: cta_boton_diagnostico, label: "Llamado a la acción · Botón diagnóstico", widget: string }
-          - { name: cta_boton_whatsapp, label: "Llamado a la acción · Botón WhatsApp", widget: string }
+          - { name: cta_boton_whatsapp, label: "Llamado a la acción · Botón correo", widget: string }
       - name: notas
-        label: "Notas"
+        label: "Tips"
         file: content/notas.json
         fields:
           - { name: head_crumbs, label: "Encabezado · Migas de pan", widget: string }
@@ -325,9 +325,6 @@ collections:
           - { name: head_lead, label: "Encabezado · Texto introductorio", widget: text }
           - { name: canales_eyebrow, label: "Canales · Eyebrow", widget: string }
           - { name: canales_titulo, label: "Canales · Título", widget: string }
-          - { name: whatsapp_titulo, label: "Canales · WhatsApp título", widget: string }
-          - { name: whatsapp_texto, label: "Canales · WhatsApp descripción", widget: string }
-          - { name: whatsapp_enlace, label: "Canales · WhatsApp enlace", widget: string }
           - { name: correo_titulo, label: "Canales · Correo título", widget: string }
           - { name: correo_texto, label: "Canales · Correo descripción", widget: string }
           - { name: cobertura_titulo, label: "Canales · Cobertura título", widget: string }
@@ -338,7 +335,6 @@ collections:
           - { name: form_titulo, label: "Formulario · Título", widget: string }
           - { name: form_intro, label: "Formulario · Texto introductorio", widget: text }
           - { name: placeholder_texto, label: "Formulario · Texto del marcador de posición", widget: text }
-          - { name: placeholder_btn_whatsapp, label: "Formulario · Botón WhatsApp", widget: string }
           - { name: placeholder_btn_correo, label: "Formulario · Botón correo", widget: string }
           - { name: campos_summary, label: "Formulario · Resumen de campos", widget: string }
           - { name: campo_nombre, label: "Formulario · Campo nombre", widget: string }
